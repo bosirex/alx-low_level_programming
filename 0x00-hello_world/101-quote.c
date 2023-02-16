@@ -1,6 +1,5 @@
-emacs 101-quote.cemacs 101-quote.c#include <stdlib.h>
-#include <stdlib.h>
-/**
+#include <stdio.h>
+ /**
  *main -prints exactly and that piece of art is useful" - Dora Korpar,
  *2015-10-19, followed by a new line, to the standard error.
  *
