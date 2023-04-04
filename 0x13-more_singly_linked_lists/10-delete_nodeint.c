@@ -34,7 +34,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	}
 
 	/* general case */
-	if (cont == idx && aux_node)
+	if (count == idx && aux_node)
 	{
 		node_to_delete = aux_node->next;
 		aux_node->next = node_to_delete->next;
