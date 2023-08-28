@@ -1,0 +1,4 @@
+#!/bn/bash
+git add .
+git commit -m "Makefiles"
+git push
