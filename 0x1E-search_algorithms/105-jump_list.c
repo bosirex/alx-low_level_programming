@@ -13,30 +13,31 @@
  */
 listint_t *jump_list(listint_t *list, size_t size, int value)
 {
-	listint_t *min =  NULL, *max = NULL;
-	size_t bound = 0;
+	listint_t *low =  NULL, *high = NULL;
+	size_t limit = 0;
 
 	if (list != NULL)
 	{
-		min = list;
-		max = list;
-		while (max->next != NULL && max->index < size && max->n < value)
+		low = list;
+		high = list;
+		while (high->next != NULL && high->index < size && high->n < value)
 		{
-			min = max;
-			bound += sqrt(size);
-			while (max->index < bound && max->next != NULL)
-				max = max->next;
-			printf("Value checked at index [%lu] = [%d]\n", max->index, max->n);
+			low = high;
+			limit += sqrt(size);
+			while (high->index < limit && high->next != NULL)
+				high = high->next;
+			printf("Value checked at index [%lu] = [%d]\n", high->index, high->n);
 		}
 		printf("Value found between indexes [%lu] and [%lu]\n",
-		       min->index, max->index);
-		while (min != NULL && min->index < size && min->index <= max->index)
+		       low->index, high->index);
+		while (low != NULL && low->index < size && low->index <= high->index)
 		{
-			printf("Value checked at index [%lu] = [%d]\n", min->index, min->n);
-			if (min->n == value)
-				return (min);
-			min = min->next;
+			printf("Value checked at index [%lu] = [%d]\n", low->index, low->n);
+			if (low->n == value)
+				return (low);
+			low = low->next;
 		}
 	}
 	return (NULL);
+
 }
